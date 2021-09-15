@@ -14,7 +14,7 @@
 # Description:
 # Default configuration for OpenSearch Dashboards
 
-#server.host: "0"
+server.host: "0.0.0.0"
 opensearch.hosts: ["https://localhost:9200"]
 opensearch.ssl.verificationMode: none
 opensearch.username: "kibanaserver"
@@ -26,6 +26,3 @@ opensearch_security.multitenancy.tenants.preferred: ["Private", "Global"]
 opensearch_security.readonly_mode.roles: ["kibana_read_only"]
 # Use this setting if you are running opensearch-dashboards without https
 opensearch_security.cookie.secure: false
-
-
-network.host: 0.0.0.0
