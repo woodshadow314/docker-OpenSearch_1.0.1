@@ -1,0 +1,1 @@
+# docker-OpenSearch_1.0.1 and infrastructure
