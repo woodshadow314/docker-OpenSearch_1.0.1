@@ -1,7 +1,7 @@
 version: '3'
 services:
   opensearch-node1:
-    image: opensearchproject/opensearch:latest
+    image: opensearchproject/opensearch:1.0.1
     container_name: opensearch-node1
     environment:
       - cluster.name=opensearch-cluster
@@ -25,7 +25,7 @@ services:
     networks:
       - opensearch-net
   opensearch-node2:
-    image: opensearchproject/opensearch:latest
+    image: opensearchproject/opensearch:1.0.1
     container_name: opensearch-node2
     environment:
       - cluster.name=opensearch-cluster
@@ -46,7 +46,7 @@ services:
     networks:
       - opensearch-net
   opensearch-dashboards:
-    image: opensearchproject/opensearch-dashboards:latest
+    image: opensearchproject/opensearch-dashboards:1.0.1
     container_name: opensearch-dashboards
     # volumes: 
     #   - type: bind
@@ -61,6 +61,15 @@ services:
       OPENSEARCH_HOSTS: '["https://opensearch-node1:9200","https://opensearch-node2:9200"]'
     networks:
       - opensearch-net
+
+  opensearch-logstash:
+    image: opensearchproject/logstash-oss-with-opensearch-output-plugin:7.13.2
+    container_name: opensearch-logstash
+      ports:
+      - 5044:5044
+    networks:
+      - opensearch-net
+
 
 volumes:
   opensearch-data1:
