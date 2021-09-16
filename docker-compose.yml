@@ -63,26 +63,26 @@ services:
     networks:
       - opensearch-net
 
-  logstash:
-    image: opensearchproject/logstash-oss-with-opensearch-output-plugin:7.13.2
-    container_name: logstash
-    volumes: 
-      - type: bind
-        source: ./logstash/pipeline/logstash.conf
-        target: /usr/share/logstash/pipeline/logstash.conf
-        read_only: true
-      - type: bind
-        source: /etc/pki/tls/certs/logstash-ad.crt
-        target: /etc/pki/tls/certs/logstash-ad.crt
-        read_only: true
-      - type: bind
-        source: /etc/pki/tls/private/logstash-ad.key
-        target: /etc/pki/tls/private/logstash-ad.key
-        read_only: true
-    ports:
-      - 5044:5044
-    networks:
-      - opensearch-net
+  # logstash:
+  #   image: opensearchproject/logstash-oss-with-opensearch-output-plugin:7.13.2
+  #   container_name: logstash
+  #   volumes: 
+  #     - type: bind
+  #       source: ./logstash/pipeline/logstash.conf
+  #       target: /usr/share/logstash/pipeline/logstash.conf
+  #       read_only: true
+  #     - type: bind
+  #       source: /etc/pki/tls/certs/logstash-ad.crt
+  #       target: /etc/pki/tls/certs/logstash-ad.crt
+  #       read_only: true
+  #     - type: bind
+  #       source: /etc/pki/tls/private/logstash-ad.key
+  #       target: /etc/pki/tls/private/logstash-ad.key
+  #       read_only: true
+  #   ports:
+  #     - 5044:5044
+  #   networks:
+  #     - opensearch-net
 
 
 volumes:
